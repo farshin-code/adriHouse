@@ -1,0 +1,11 @@
+redis.conf
+rabbitmq.conf
+mongod.conf
+docker*
+.env
+*/.env
+*/node_modules
+/node_modules
+/env
+env
+.docker*

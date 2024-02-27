@@ -1,0 +1,160 @@
+<div class="container col-12 col-lg-6 mt-5">
+  <h1 class="cursive-text">New Tenant</h1>
+  <form [formGroup]="form" class="border p-3 rounded" (submit)="onSubmit()">
+    <div class="mb-3">
+      <label for="tenantName" class="form-label fw-bold"
+        >Company / Tenant Name *</label
+      >
+      <input
+        formControlName="companyName"
+        type="text"
+        class="form-control"
+        id="tenantName"
+        [class.is-invalid]="
+          form.get('companyName')?.invalid && form.get('companyName')?.touched
+        "
+        [class.is-valid]="
+          form.get('companyName')?.valid && form.get('companyName')?.touched
+        "
+      />
+      <div class="invalid-feedback">
+        {{ form.get('tenantName')?.errors?.['required'] && 'Requied' }}
+        {{ form.get('tenantName')?.errors?.['minlength'] && 'At least 3 characters' }}
+        {{ form.get('tenantName')?.errors?.['maxlength'] && 'At most 30 characters' }}
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="adminFullName" class="form-label fw-bold"
+        >Admin Full Name *</label
+      >
+      <input
+        formControlName="adminFullName"
+        type="text"
+        class="form-control"
+        id="adminFullName"
+        [class.is-invalid]="adminFullName?.invalid && adminFullName?.touched"
+        [class.is-valid]="adminFullName?.valid && adminFullName?.touched"
+      />
+      <div class="invalid-feedback">requied</div>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label fw-bold"
+        >Username / Email *</label
+      >
+      <input
+        formControlName="username"
+        type="text"
+        class="form-control"
+        id="username"
+        [class.is-invalid]="username?.invalid && username?.touched"
+        [class.is-valid]="username?.valid && username?.touched"
+      />
+      <div class="invalid-feedback">Valid Email Address is Needed</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label fw-bold">Password *</label>
+      <div class="input-group mb-3">
+        <input
+          formControlName="password"
+          type="{{ showPassword ? 'text' : 'password' }}"
+          class="form-control"
+          aria-label="Password"
+          aria-describedby="basic-addon2"
+          [class.is-invalid]="password?.invalid && password?.touched"
+          [class.is-valid]="password?.valid && password?.touched"
+        />
+
+        <span class="input-group-text" id="basic-addon2">
+          <i
+            class="bi"
+            [ngClass]="{
+              'bi-eye-slash': !showPassword,
+              'bi-eye': showPassword
+            }"
+            (click)="onClickEye()"
+            style="cursor: pointer"
+          ></i>
+        </span>
+        <div
+          class="text-danger"
+          *ngIf="password?.errors?.['pattern']"
+          style="
+            margin-top: 0.25rem;
+            font-size: 0.875em;
+            color: var(--bs-form-invalid-color);
+          "
+        >
+          Password must contain at least one uppercase letter, one lowercase,
+          one number and one special character
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="mb-3 row">
+      <label for="logoFile" class="form-label fw-bold">Logo</label>
+      <button
+        type="button"
+        id="logoFile"
+        class="form-control btn btn-sm btn-link text-dark text-decoration-none"
+        (click)="openFile()"
+      >
+        Browse...
+      </button> -->
+    <!-- <input
+          formControlName="logoFile"
+          class="form-control"
+          type="file"
+          id="logoFile"
+          accept="image/*"
+          (change)="onFileChange($event)"
+        /> -->
+    <!-- </div> -->
+
+    <!-- <img
+      class="border rounded"
+      style="width: 40px; height: 40px; object-fit: cover"
+      src="{{ imgPreview }}"
+      alt="Logo"
+    /> -->
+    <div class="d-flex justify-content-center mt-3">
+      <button
+        type="submit"
+        class="btn btn-light border w-100 w-md-50 fw-bold"
+        [disabled]="form.invalid || form.untouched"
+      >
+        Sign Up ...
+      </button>
+    </div>
+    <div class="d-flex justify-content-center mt-3">
+      <button
+        class="btn btn-light border w-100 w-md-50 fw-bold"
+        (click)="googleLogin($event)"
+      >
+        <i class="bi bi-google me-2 text-secondary"></i> Sign Up with Google ...
+      </button>
+    </div>
+  </form>
+</div>
+<div class="d-flex justify-content-center mt-5">
+  <div
+    class="toast align-items-center"
+    role="alert"
+    aria-live="assertive"
+    aria-atomic="true"
+    [class.show]="error !== ''"
+  >
+    <div class="d-flex">
+      <div class="toast-body text-danger">
+        {{ error }}
+      </div>
+      <button
+        type="button"
+        class="btn-close me-2 m-auto"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+  </div>
+</div>

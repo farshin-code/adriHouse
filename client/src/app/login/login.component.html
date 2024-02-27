@@ -1,0 +1,78 @@
+<div class="container col-12 col-lg-6 mt-5">
+  <h1 class="cursive-text">Login</h1>
+  <form
+    [formGroup]="loginForm"
+    class="border p-3 rounded"
+    (submit)="onSubmit()"
+  >
+    <div class="mb-3">
+      <label for="username" class="form-label fw-bold">Username / Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        formControlName="username"
+      />
+      <div
+        class="text-danger"
+        style="
+          margin-top: 0.25rem;
+          font-size: 0.875em;
+          color: var(--bs-form-invalid-color);
+        "
+        *ngIf="loginError"
+      >
+        Username or Password is incorrect
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="password" class="form-label fw-bold">Password</label>
+      <div class="input-group">
+        <input
+          type="{{ showPassword ? 'text' : 'password' }}"
+          class="form-control"
+          formControlName="password"
+        />
+
+        <span class="input-group-text" id="basic-addon2">
+          <i
+            class="bi"
+            [ngClass]="{
+              'bi-eye-slash': !showPassword,
+              'bi-eye': showPassword
+            }"
+            (click)="onClickEye()"
+            style="cursor: pointer"
+          ></i>
+        </span>
+      </div>
+      <div
+        class="text-danger mt-0"
+        style="
+          margin-top: 0.25rem;
+          font-size: 0.875em;
+          color: var(--bs-form-invalid-color);
+        "
+        *ngIf="loginError"
+      >
+        Username or Password is incorrect
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <button
+        type="submit"
+        class="btn btn-light border w-100 w-md-50 fw-bold"
+        [disabled]="loginForm.invalid || loginForm.untouched"
+      >
+        Login
+      </button>
+    </div>
+    <div class="'d-flex justify-content-center mt-3">
+      <button type="submit" class="btn btn-light border w-100 w-md-50 fw-bold">
+        <i class="bi bi-google me-2 text-secondary"></i> Login with Google
+      </button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 mt-5 d-flex justify-content-center">
+      <h1 class="dancing-text">Feel Yourself at Home</h1>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-4">
+    <div class="col-12 col-md-6">
+      <form>
+        <i
+          *ngIf="iconToDisplay === 'search'"
+          class="bi bi-search search-icon"
+        ></i>
+        <i
+          *ngIf="iconToDisplay === 'reset'"
+          class="bi bi-x-circle search-icon"
+          (click)="onReset()"
+          style="cursor: pointer"
+        ></i>
+        <input
+          type="text"
+          class="form-control w-100 input-placeholder"
+          placeholder="I'm looking for 2 beds, 2 baths in GTA, with parking space. something around 4000 sqft."
+          style="height: 50px; border-radius: 1000px; text-indent: 25px"
+          aria-describedby="basic-addon1"
+          name="search"
+          #search
+          (keyup.enter)="onSearch(search.value)"
+          [(ngModel)]="searchBox"
+        />
+      </form>
+    </div>
+  </div>
+
+  <app-result-list [results]="results"></app-result-list>
+</div>

@@ -1,0 +1,58 @@
+openapi: '3.0.2'
+info:
+  title: Authentication
+  version: '1.0'
+  description: Authentication API for adriHouse
+servers:
+  - url: https://127.0.0.1:3001
+tags:
+  - name: authentication
+paths:
+  /auth/login:
+    post:
+      description: Login API with JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties: 
+                username:
+                  type: string
+                password:
+                  type: string
+      tags:
+        - authentication
+      responses:
+        '200':
+          description: logged in successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+  /auth/glogin:
+    get:
+      description: Google Login API , it will redirect to google login page
+      tags:
+        - authentication
+      responses:
+        '200':
+          description: Redirected to google login page
+  /auth/google/callback:
+    get:
+      description: Google Login API , after google login it will redirect to this API
+      tags:
+        - authentication
+      parameters:
+        - name: code
+          in: query
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Redirected to google login page 

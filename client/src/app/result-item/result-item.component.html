@@ -1,0 +1,24 @@
+<div class="card" style="width: 18rem">
+  <img
+    src="{{ 'http://127.0.0.1:3002/images/' + result.imgPath }}"
+    class="card-img-top img-fluid"
+    style="width: 100%; height: 200px; object-fit: cover"
+    alt="item-picture"
+  />
+  <div class="card-body">
+    <p class="card-text">
+      <img
+        src="assets/bedroom.ico"
+        style="width: 15px; height: 15px"
+        alt="bedroom"
+      />{{ result.beds }}
+      <img
+        src="assets/bathroom.ico"
+        style="width: 15px; height: 15px"
+        alt="bathroom"
+      />{{ result.baths }}
+    </p>
+    <p><b>CITY:</b> {{ result.city }}</p>
+    <p><b>ADDRESS:</b> {{ result.address }}</p>
+  </div>
+</div>

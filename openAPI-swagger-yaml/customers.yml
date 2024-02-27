@@ -1,0 +1,92 @@
+openapi: '3.0.2'
+info:
+  title: Adriana KM
+  version: '1.0'
+  description: Adriana KM
+  contact:
+    name: Farshin Asri
+    email: farshinasri@gmail.com
+    url: https://github.com/farshinasri
+  license:
+    name: appache 2.0
+tags:
+    - name: customers
+      description: Customers API    
+paths:
+  /api/createTenant:
+    post:
+      description: Create Tenant API,Because The App architecture is tenant Based, For each companies(customers) we need to create a tenant
+      tags:
+        - customers 
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                companyName:
+                  type: string
+                userName:
+                  type: string
+                password:
+                  type: string
+                adminFullName:
+                  type: string
+      responses:
+        '200':
+          description: Tenant Created Successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  savedTenantId:
+                    type: string
+                  savedUserId:
+                    type: string
+  /api/createUser:
+    post:
+      description: Create User, by default all the user will have "user"  role,Admin can assign "admin" role to the user if needed
+      tags:
+        - customers
+      security:
+        - bearerAuth: []
+      
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                  username:
+                    type: string
+                  password:
+                    type: string
+                  role:
+                    type: string
+                    default: user
+                  companyId:
+                    type: string
+                  fullName:
+                    type: string
+      responses:
+        '200':
+          description: User Created Successfully
+          content:
+            application/json:
+              schema:
+                type: string
+                properties:
+                  savedUser:
+                    type: string
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Enter JWT token
+    
+                

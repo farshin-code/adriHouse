@@ -1,0 +1,17 @@
+.input-placeholder::placeholder {
+    font-style: italic;
+    font-weight: normal;
+    color: #bbb;
+    /* padding-left: 25px; */
+}
+
+.search-icon {
+
+    font-size: 20px;
+    position: absolute;
+    /* top: 50%; */
+    /* transform: translateY(50px); */
+    margin-left: 5px;
+    margin-top: 12px;
+    transform: translateX( 10px);
+}

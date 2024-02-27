@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand bg-body-tertiary">
+  <div class="container-fluid">
+    <span
+      class="navbar-brand mb-0 dancing-text fw-bold"
+      style="color: blueviolet"
+      routerLink="/"
+      [ngStyle]="{ cursor: 'pointer' }"
+      >AdriHouse
+    </span>
+
+    <div class="d-flex justify-content-end w-100">
+      <div>
+        <ul class="navbar-nav me-auto mb-lg-0">
+          <li class="nav-item">
+            <a
+              class="btn btn-outline-secondary m-1"
+              aria-current="page"
+              routerLink="new-tenant"
+              routerLinkActive="active"
+              *ngIf="!authService.isLoggedIn()"
+              >Sign Up</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="btn btn-outline-secondary m-1"
+              routerLink="login"
+              routerLinkActive="active"
+              *ngIf="!authService.isLoggedIn()"
+              >Login</a
+            >
+          </li>
+          <li class="nav-item" *ngIf="authService.isLoggedIn()">
+            <a
+              class="btn btn-outline-secondary m-1"
+              routerLink="new-listing"
+              routerLinkActive="active"
+              >New Listing</a
+            >
+          </li>
+
+          <li class="nav-item" *ngIf="authService.isLoggedIn()">
+            <a class="btn btn-outline-secondary m-1" (click)="logout()"
+              >Logout</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>

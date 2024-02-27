@@ -1,0 +1,178 @@
+<div class="container col-12 col-lg-6 mt-5">
+  <div class="d-flex justify-content-center mt-5">
+    <div
+      class="toast align-items-center"
+      role="alert"
+      aria-live="assertive"
+      aria-atomic="true"
+      [class.show]="toast"
+    >
+      <div class="d-flex">
+        <div class="toast-body fw-bold text-danger">Saving listing failed</div>
+        <button
+          type="button"
+          class="btn-close me-2 m-auto"
+          data-bs-dismiss="toast"
+          aria-label="Close"
+        ></button>
+      </div>
+    </div>
+  </div>
+  <h1 class="cursive-text">New Listing</h1>
+  <form #f="ngForm" class="border p-3 rounded" (ngSubmit)="onSubmit(f)">
+    <div class="mb-3">
+      <label for="beds" class="form-label fw-bold">Number of Beds *</label>
+      <select
+        class="form-select mb-3"
+        aria-label="Large select example"
+        id="beds"
+        ngModel
+        name="beds"
+        required
+        #beds="ngModel"
+        [class.is-invalid]="beds?.invalid && beds?.touched"
+        [class.is-valid]="beds?.valid && beds?.touched"
+      >
+        <option value="" selected disabled>Choose ...</option>
+        <option *ngFor="let option of options" value="{{ option }}">
+          {{ option }}
+        </option>
+      </select>
+      <div class="invalid-feedback">Choose number of beds from the list</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="baths" class="form-label fw-bold">Number of Baths *</label>
+      <select
+        class="form-select mb-3"
+        aria-label="Large select example"
+        id="baths"
+        ngModel
+        name="baths"
+        required
+        #baths="ngModel"
+        [class.is-invalid]="baths?.invalid && baths?.touched"
+        [class.is-valid]="baths?.valid && baths?.touched"
+      >
+        <option value="" selected>Choose ...</option>
+        <option *ngFor="let option of options" value="{{ option }}">
+          {{ option }}
+        </option>
+      </select>
+      <div class="invalid-feedback">
+        Choose number of bathrooms from the list
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="username" class="form-label fw-bold">Address *</label>
+      <input
+        type="text"
+        class="form-control"
+        id="username"
+        ngModel
+        name="address"
+        required
+        #address="ngModel"
+        [class.is-invalid]="address?.invalid && address?.touched"
+        [class.is-valid]="address?.valid && address?.touched"
+      />
+      <div class="invalid-feedback">Valid Address is Needed</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="city" class="form-label fw-bold">City *</label>
+      <div class="input-group mb-3">
+        <input
+          class="form-control"
+          aria-label="City"
+          ngModel
+          name="city"
+          required
+          #city="ngModel"
+          [class.is-invalid]="city?.invalid && city?.touched"
+          [class.is-valid]="city?.valid && city?.touched"
+        />
+
+        <div class="invalid-feedback">Valid City is Needed</div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label fw-bold">Price *</label>
+      <input
+        type="text"
+        class="form-control"
+        id="price"
+        ngModel
+        name="price"
+        required
+        #price="ngModel"
+        [class.is-invalid]="price?.invalid && price?.touched"
+        [class.is-valid]="price?.valid && price?.touched"
+        pattern="^[0-9]+(\.[0-9]{1,2})?$"
+      />
+      <div class="invalid-feedback">Valid Price is Needed</div>
+    </div>
+    <div class="mb-3">
+      <label for="picFile" class="form-label fw-bold"
+        >Choose the Picture *</label
+      >
+      <input
+        ngModel
+        name="picFile"
+        required
+        #picFile="ngModel"
+        type="file"
+        class="form-control"
+        id="picFile"
+        accept="image/*"
+        [class.is-invalid]="picFile?.invalid && picFile?.touched"
+        [class.is-valid]="picFile?.valid && picFile?.touched"
+        (change)="onFileSelected($event)"
+      />
+      <div class="invalid-feedback">Valid Picture is Needed</div>
+    </div>
+    <div class="mb-3 d-flex flex-column border p-3">
+      <label for="flexRadioListing" class="form-label fw-bold"
+        >Type of Listing *</label
+      >
+      <div>
+        <span class="form-check">
+          <input
+            class="form-check-input"
+            id="flexRadioListing"
+            type="radio"
+            name="postedFor"
+            [(ngModel)]="postedFor"
+            value="sell"
+          />
+          <label class="form-check-label fw-bold" for="flexRadioListing">
+            Sell
+          </label>
+        </span>
+        <span class="form-check">
+          <input
+            class="form-check-input"
+            type="radio"
+            id="flexRadioListing2"
+            value="rent"
+            name="postedFor"
+            [(ngModel)]="postedFor"
+          />
+          <label class="form-check-label fw-bold" for="flexRadioListing2">
+            Rent
+          </label>
+        </span>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-center mt-3">
+      <button
+        type="submit"
+        class="btn btn-light border w-100 w-md-50 fw-bold"
+        [disabled]="f.invalid"
+      >
+        Add ...
+      </button>
+    </div>
+  </form>
+</div>

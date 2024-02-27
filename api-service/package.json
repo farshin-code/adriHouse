@@ -1,0 +1,25 @@
+{
+  "name": "api-service-adriHouse",
+  "version": "1.0.0",
+  "description": "provides required APIs for adriHouse",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server/server.js" 
+  },
+  "author": "Farshin Asri",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.10.3",
+    "bcrypt": "^5.1.1",
+    "connect-redis": "^7.1.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.1",
+    "express": "^4.18.2",
+    "express-jwt": "^8.4.1",
+    "express-session": "^1.18.0",
+    "mongo": "^0.1.0",
+    "mongoose": "^8.1.1",
+    "mssql": "^10.0.2",
+    "redis": "^4.6.12"
+  }
+}
