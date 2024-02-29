@@ -45,6 +45,14 @@ paths:
                     type: string
                   savedUserId:
                     type: string
+        '500':
+          description: Internal Server Error
+          content:
+            application/text:
+              schema:
+                type: string
+                example: Failed to create Tenant
+
   /api/createUser:
     post:
       description: Create User, by default all the user will have "user"  role,Admin can assign "admin" role to the user if needed
@@ -81,6 +89,13 @@ paths:
                 properties:
                   savedUser:
                     type: string
+        '500':
+          description: Internal Server Error
+          content:
+            application/text:
+              schema:
+                type: string
+                example: Failed to create User
 components:
   securitySchemes:
     bearerAuth:

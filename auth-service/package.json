@@ -4,7 +4,8 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "auth-dev": "nodemon authServer.js"
+    "auth-dev": "set adriHouse_test=false && nodemon authServer.js",
+    "test": "set adriHouse_test=true &&  jest "
   },
   "author": "Farshin Asri",
   "license": "ISC",
@@ -24,5 +25,10 @@
     "open": "^10.0.3",
     "passport-google-oauth20": "^2.0.0",
     "redis": "^4.6.12"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
+
   }
 }
