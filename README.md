@@ -38,6 +38,7 @@ API service provides different features:
 **-** **New User** to sign up new user.
 
 Requests to search MSSQL **will be cached** for 10 minutes.
+
 Requests are limited to 10 per IP per Hour.
 
 ### File (NODEJS)
