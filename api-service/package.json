@@ -4,7 +4,8 @@
   "description": "provides required APIs for adriHouse",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server/server.js" 
+    "test": "set adriHouse_test=true && jest",
+    "dev": "set adriHouse_test=false &&  nodemon server/server.js"
   },
   "author": "Farshin Asri",
   "license": "ISC",
@@ -21,5 +22,9 @@
     "mongoose": "^8.1.1",
     "mssql": "^10.0.2",
     "redis": "^4.6.12"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^6.3.4"
   }
 }

@@ -17,7 +17,7 @@ const connectToDB = () => {
     });
 };
 
-connectToDB();
+process.env.adriHouse_test.trim() !== "true" && connectToDB();
 
 const tenantSchema = new schema({
   companyName: String,

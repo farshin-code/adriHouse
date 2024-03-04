@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NewTenantComponent } from './new-tenant/new-tenant.component';
 import { NavbarComponent } from './navbar/navbar.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { AuthService } from './services/auth.service';
@@ -15,7 +15,8 @@ import { ResultItemComponent } from './result-item/result-item.component';
 import { FormsModule } from '@angular/forms';
 import { NewListingComponent } from './new-listing/new-listing.component';
 import { GoogleLoggedInComponent } from './google-logged-in/google-logged-in.component';
-
+import { SpinnerComponent } from './spinner/spinner.component';
+import { SpinnerInterceptorService } from './services/spinner-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +28,7 @@ import { GoogleLoggedInComponent } from './google-logged-in/google-logged-in.com
     ResultItemComponent,
     NewListingComponent,
     GoogleLoggedInComponent,
+    SpinnerComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,7 +45,9 @@ import { GoogleLoggedInComponent } from './google-logged-in/google-logged-in.com
     }),
 
   ],
-  providers: [ HttpClientModule,AuthService],
+  providers: [ HttpClientModule,AuthService,{
+    provide: HTTP_INTERCEPTORS, useClass: SpinnerInterceptorService, multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
