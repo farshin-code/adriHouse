@@ -10,6 +10,15 @@ const {
   logError,
   clientErrorHandler,
 } = require("./middleWares/errors");
+const { rateLimit } = require("express-rate-limit");
+
+const limiter = rateLimit({
+  windowMs: 60 * 60 * 1000, //60 minutes
+  limit: 10, // IP
+  standardHeaders: "draft-7",
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers.
+});
+
 require("dotenv").config();
 
 const startSever = async () => {
@@ -29,7 +38,7 @@ const startSever = async () => {
       saveUninitialized: false,
     })
   );
-
+  app.use(limiter);
   app.use(cors({ origin: "http://localhost:4200", credentials: true }));
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
