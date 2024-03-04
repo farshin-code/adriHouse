@@ -15,6 +15,8 @@ And following components :
  - **MongoDB**
  - **Redis**
  - **RabbitMQ**
+### Workflow Diagram
+![adriHouse drawio](https://github.com/farshin-code/adriHouse/assets/76722711/9aba9e26-2d6e-403a-8919-28df9e1748b6)
 
  ### Auth (NodeJS)
  Auth service provides the ability of sign-up / sign-in with both **JWT** and **session**. It also utilizes Google Auth service to add Google login feature to the project. App stores sessions in Redis to share them between microservices.
