@@ -1,6 +1,14 @@
 # AdriHouse
 
 ### AI assistant to search and find your next home.
+Instead of using boring advanced search options, Just talk with the app, get your result back, talk again and again until getting your desired result. 
+
+In case demonstrates below:
+- **I'm looking for a house with 3 beds and 3 baths**
+- Result appears with three houses.
+- **Just in Richmond Hill**
+- Result hide richmond hill from list.
+
 ![AdriHouse-client (1)](https://github.com/farshin-code/adriHouse/assets/76722711/30209103-48ae-4ce1-b9b4-dfde7d69c03a)
 
 
