@@ -33,11 +33,11 @@ And following components :
 
 ![adriHouse drawio](https://github.com/farshin-code/adriHouse/assets/76722711/9aba9e26-2d6e-403a-8919-28df9e1748b6)
 
-### Auth (NodeJS)
+### Auth (NodeJS - JavaScript)
 
 Auth service provides the ability of sign-up / sign-in with both **JWT** and **session**. It also utilizes Google Auth service to add Google login feature to the project. App stores sessions in Redis to share them between microservices.
 
-### API (NODEJS)
+### API (NODEJS - JavaScript)
 
 API service provides different features:
 
@@ -51,7 +51,7 @@ Requests to search MSSQL **will be cached** for 10 minutes.
 
 Requests are limited to 10 per IP per Hour.
 
-### File (NODEJS)
+### File (NODEJS - JavaScript)
 
 File service provides APIs to save / delete files (images)
 
@@ -59,6 +59,6 @@ File service provides APIs to save / delete files (images)
 
 **Event-Driven** microservice, which is connected to RabbitMQ, to send prompts to OpenAI and send back SQL statement.
 
-### Client (Angular)
+### Client (Angular - TypeScript)
 
 User interface which is implemented by Angular and Bootstrap.
