@@ -1,7 +1,7 @@
 # AdriHouse
 
 ### AI assistant to search and find your next home.
-![AdriHouse-client](https://github.com/farshin-code/adriHouse/assets/76722711/6805339a-5931-4069-902d-6bee379e99e8)
+![AdriHouse-client (1)](https://github.com/farshin-code/adriHouse/assets/76722711/30209103-48ae-4ce1-b9b4-dfde7d69c03a)
 
 
 
