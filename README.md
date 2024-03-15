@@ -7,7 +7,7 @@ In case demonstrates below:
 - **I'm looking for a house with 3 beds and 3 baths**
 - Result appears with three houses.
 - **Just in Richmond Hill**
-- Result hide richmond hill from list.
+- Result hides Richmond Hill from list.
 
 ![AdriHouse-client (1)](https://github.com/farshin-code/adriHouse/assets/76722711/30209103-48ae-4ce1-b9b4-dfde7d69c03a)
 
