@@ -11,7 +11,7 @@ const sqlConfig = {
     idleTimeoutMillis: 30000,
   },
   options: {
-    encrypt: true, // for azure
+    encrypt: true, // for azure just in case ...
     trustServerCertificate: true, // true for local dev / self-signed certs
   },
 };
